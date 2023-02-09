@@ -1,12 +1,13 @@
 package off3prob1;
 
-public class Adapter implements Imposter{
+public class Adapter implements CrewMate{
 
-    CrewMate crewMate;
-    public Adapter(CrewMate crewMate){this.crewMate=crewMate;}
+    Imposter imposter;
+    public Adapter(Imposter imposter){this.imposter=imposter;}
+
 
     @Override
     public void showDetails() {
-        crewMate.showDetails();
+        System.out.println("Crewmate is working");
     }
 }

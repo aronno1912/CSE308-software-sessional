@@ -6,9 +6,9 @@ public class Main {
         CrewMate crewMate=new ConcreteCrewMate();
         imposter.showDetails();
         crewMate.showDetails();
-         imposter=new Adapter(crewMate);
+         Adapter imposter2=new Adapter(imposter);
         System.out.println("By taking adapter now ");
-        imposter.showDetails();
+        imposter2.showDetails();
 
     }
 }

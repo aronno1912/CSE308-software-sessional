@@ -19,15 +19,17 @@ public class Main {
         System.out.println("4.Mocha");
         while(choice!=0)
         {
-            System.out.println("Enter choice number and number of cups");
+            System.out.println("Enter choice number");
             System.out.println("press 0 to finish the order");
             choice=scanner.nextInt();
+
+
 
 
             switch (choice)
             {
                 case 1:
-                {
+                {     System.out.println("How many cups?");
                     numOfcups=scanner.nextInt();
                     coff=new AmericanoDec(new BlackCoffee());
                     total+=coff.showPrice()*numOfcups;
@@ -37,7 +39,9 @@ public class Main {
                     break;
                 }
                 case 2:
-                {    numOfcups=scanner.nextInt();
+
+                {   System.out.println("How many cups?");
+                    numOfcups=scanner.nextInt();
                     coff=new EspressoDec(new BlackCoffee());
                     total+=coff.showPrice()*numOfcups;
                     System.out.println("Espresso :"+coff.showPrice());
@@ -46,7 +50,8 @@ public class Main {
 
                 }
                 case 3:
-                {     numOfcups=scanner.nextInt();
+                {   System.out.println("How many cups?");
+                    numOfcups=scanner.nextInt();
                     coff=new CappucinoDec(new MilkCoffee());
                     total+=coff.showPrice()*numOfcups;
                     System.out.println("Cappuccino :"+coff.showPrice());
@@ -55,7 +60,8 @@ public class Main {
 
                 }
                 case 4:
-                {    numOfcups=scanner.nextInt();
+                {   System.out.println("How many cups?");
+                    numOfcups=scanner.nextInt();
                     coff=new MochaDec(new MilkCoffee());
 
 
@@ -67,6 +73,11 @@ public class Main {
                 }
                 case 0:
                 {break;}
+                default:
+                {
+                    System.out.println("invalid input");
+                    break;
+                }
             }
 
 
