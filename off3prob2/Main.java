@@ -1,12 +1,17 @@
 package off3prob2;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         Coffee coff;
+        HashMap <String, Integer> map = new HashMap<>();
+        map.put("Americano", 0);
+        map.put("Espresso", 0);
+        map.put("Cappuccino", 0);
+        map.put("Mocha", 0);
 
         int choice=-1;
         int numOfcups;
@@ -33,7 +38,9 @@ public class Main {
                     numOfcups=scanner.nextInt();
                     coff=new AmericanoDec(new BlackCoffee());
                     total+=coff.showPrice()*numOfcups;
-                    System.out.println("Americano :"+coff.showPrice());
+                    System.out.println("Americano :"+coff.showPrice()+"tk per cup");
+                    System.out.println();
+                    map.put("Americano",map.get("Americano")+numOfcups);
                     coff.showIngredients();
 
                     break;
@@ -44,8 +51,10 @@ public class Main {
                     numOfcups=scanner.nextInt();
                     coff=new EspressoDec(new BlackCoffee());
                     total+=coff.showPrice()*numOfcups;
-                    System.out.println("Espresso :"+coff.showPrice());
+                    System.out.println("Espresso :"+coff.showPrice()+"tk per cup");
+                    map.put("Espresso",map.get("Espresso")+numOfcups);
                     coff.showIngredients();
+
                     break;
 
                 }
@@ -54,8 +63,11 @@ public class Main {
                     numOfcups=scanner.nextInt();
                     coff=new CappucinoDec(new MilkCoffee());
                     total+=coff.showPrice()*numOfcups;
-                    System.out.println("Cappuccino :"+coff.showPrice());
+                    System.out.println("Cappuccino :"+coff.showPrice()+"tk per cup");
+
+                    map.put("Cappuccino",map.get("Cappuccino")+numOfcups);
                     coff.showIngredients();
+
                     break;
 
                 }
@@ -66,7 +78,8 @@ public class Main {
 
 
                     total+=coff.showPrice()*numOfcups;
-                    System.out.println("Mocha :"+coff.showPrice());
+                    System.out.println("Mocha :"+coff.showPrice()+"tk per cup");
+                    map.put("Mocha",map.get("Mocha")+numOfcups);
                     coff.showIngredients();
                     break;
 
@@ -81,6 +94,11 @@ public class Main {
             }
 
 
+        }
+
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if(entry.getValue()!=0)
+            System.out.println(entry.getKey() + " : " + entry.getValue()+" cups");
         }
         System.out.println("Your total bill is "+total);
 
